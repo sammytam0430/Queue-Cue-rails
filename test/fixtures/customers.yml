@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  phone: 1
+  party: 1
+  add_to_list: false
+
+two:
+  name: MyString
+  phone: 1
+  party: 1
+  add_to_list: false
