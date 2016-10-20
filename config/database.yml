@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # PostgreSQL. Versions 8.2 and up are supported.
 #
 # Install the pg driver:
@@ -19,10 +20,21 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
+=======
+# SQLite version 3.x
+#   gem install postgresql
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'postgresql'
+#
+default: &default
+  adapter: postgresql
+>>>>>>> 5a45dc9ed96118acb3e328182b6096ce74f56828
   pool: 5
 
 development:
   <<: *default
+<<<<<<< HEAD
   database: queuecue_development
   # username: development
   # password: development
@@ -53,13 +65,20 @@ development:
   #   log, notice, warning, error, fatal, and panic
   # Defaults to warning.
   #min_messages: notice
+=======
+  database: queue_development
+>>>>>>> 5a45dc9ed96118acb3e328182b6096ce74f56828
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+<<<<<<< HEAD
   database: queuecue_test
+=======
+  database: queue_test
+>>>>>>> 5a45dc9ed96118acb3e328182b6096ce74f56828
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -82,4 +101,8 @@ test:
 #
 production:
   <<: *default
+<<<<<<< HEAD
   url: <%= ENV['DATABASE_URL'] %>
+=======
+  database: queue_production
+>>>>>>> 5a45dc9ed96118acb3e328182b6096ce74f56828
