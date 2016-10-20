@@ -21,3 +21,7 @@ Jen Yee @jenyeeiam
 * [babel-loader](https://github.com/babel/babel-loader)
 * [webpack-dev-server](https://github.com/webpack/webpack-dev-server)
 * Rails
+
+
+
+bin/rails s -b 0.0.0.0
