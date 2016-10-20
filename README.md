@@ -1,24 +1,8 @@
-# README
+**QueueCue**
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+QueueCue is a restaurant waiting app, allowing users to see current conditions for nearby restaurants. As a user, you will be able to add your party to the queue, and will receive a cue when it's your turn!
 
-Things you may want to cover:
+This is a project by Lighthouse Labs students. 
 
-* Ruby version
+Sammy Tam, Tong Yap, Jen Yee, and Natalie Mok
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
