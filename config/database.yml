@@ -1,3 +1,12 @@
+
+# SQLite version 3.x
+#   gem install postgresql
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'postgresql'
+#
+default: &default
+  adapter: postgresql
 # PostgreSQL. Versions 8.2 and up are supported.
 #
 # Install the pg driver:
@@ -83,3 +92,4 @@ test:
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
+
