@@ -1,38 +1,72 @@
 require 'rails_helper'
 
 RSpec.describe Customer, type: :model do
-
-  let(:customer) { Customer.new(name: 'Mickey', phone_number: '6041231234', email: 'mmouse@gmail.com') }
-
-  describe 'Validations' do
+  context 'Validations' do
+    let!(:customer) { Fabricate(:customer) }
 
     it "is valid with valid attributes" do
       expect(customer).to be_valid
     end
 
     # Name should be required
-    it "is not valid without a name" do
-      customer.name = nil
-      expect(customer).to be_invalid
-      expect(customer.errors.size).to eql(1)
-      expect(customer.errors.full_messages).to include 'Name can\'t be blank'
+    context "without a name" do
+      let(:customer) { Fabricate.build(:customer, name: nil) }
+
+      it "is invalid" do
+        expect(customer).to be_invalid
+      end
+      it "has 1 error message" do
+        customer.valid?
+        expect(customer.errors.size).to eql(1)
+      end
+      it "include 'Name can\'t be blank'" do
+        customer.valid?
+        expect(customer.errors.full_messages).to include 'Name can\'t be blank'
+      end
+
     end
 
     # Phone number should be required
-    it "is not valid without a phone number" do
-      customer.phone_number = nil
-      expect(customer).to be_invalid
-      expect(customer.errors.size).to eql(3)
-      expect(customer.errors.full_messages).to include 'Phone number can\'t be blank'
-      expect(customer.errors.full_messages).to include 'Phone number is not a number'
-      expect(customer.errors.full_messages).to include 'Phone number is the wrong length (should be 10 characters)'
+    context "without a phone number" do
+      let!(:customer) { Fabricate.build(:customer, phone_number: nil) }
+
+      it "is invalid" do
+        expect(customer).to be_invalid
+      end
+      it "has 3 error message" do
+        customer.valid?
+        expect(customer.errors.size).to eql(3)
+      end
+      it "include 'Phone number can\'t be blank'" do
+        customer.valid?
+        expect(customer.errors.full_messages).to include 'Phone number can\'t be blank'
+      end
+      it "include 'Phone number is not a number'" do
+        customer.valid?
+        expect(customer.errors.full_messages).to include 'Phone number is not a number'
+      end
+      it "include 'Phone number is not a number'" do
+        customer.valid?
+        expect(customer.errors.full_messages).to include 'Phone number is the wrong length (should be 10 characters)'
+      end
+
     end
 
-    it "is not valid without a phone number" do
-      customer.email = nil
-      expect(customer).to be_invalid
-      expect(customer.errors.size).to eql(1)
-      expect(customer.errors.full_messages).to include 'Email can\'t be blank'
+    # Email should be required
+    context "without a email" do
+      let!(:customer) { Fabricate.build(:customer, email: nil) }
+
+      it "is invalid" do
+        expect(customer).to be_invalid
+      end
+      it "has 1 error message" do
+        customer.valid?
+        expect(customer.errors.size).to eql(1)
+      end
+      it "include 'Email can\'t be blank'" do
+        customer.valid?
+        expect(customer.errors.full_messages).to include 'Email can\'t be blank'
+      end
     end
 
   end
