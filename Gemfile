@@ -48,6 +48,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :test do
+  gem 'fabrication'
+  gem 'faker'
   gem 'capybara'
   gem 'poltergeist'
   gem 'database_cleaner'
