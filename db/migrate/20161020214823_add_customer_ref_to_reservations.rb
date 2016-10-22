@@ -1,5 +1,5 @@
 class AddCustomerRefToReservations < ActiveRecord::Migration[5.0]
   def change
-    add_reference :reservations, :customer, foreign_key: true
+    add_reference :reservations, :customer, index: true, foreign_key: true
   end
 end
