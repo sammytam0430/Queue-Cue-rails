@@ -1,5 +1,5 @@
-Fabricator(:customer) do
+Fabricator(:restaurant) do
   name { Faker::Company.name }
   food_type { Faker::Address.country }
-  email { Faker::Address.city }
+  location { Faker::Address.city }
 end
