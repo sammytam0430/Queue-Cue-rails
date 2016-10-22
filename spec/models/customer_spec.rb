@@ -10,7 +10,7 @@ RSpec.describe Customer, type: :model do
 
     # Name should be required
     context "without a name" do
-      let(:customer) { Fabricate.build(:customer, name: nil) }
+      let!(:customer) { Fabricate.build(:customer, name: nil) }
 
       it "is invalid" do
         expect(customer).to be_invalid
