@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
-  before_action :allow_cross_origin_requests, if: proc { Rails.env.development? }
+  after_action :allow_cross_origin_requests, if: proc { Rails.env.development? }
 
   def preflight
-    render nothing: true
+    head(:ok) if request.request_method == "OPTIONS"
   end
 
 private
@@ -14,5 +14,4 @@ private
     headers['Access-Control-Max-Age'] = '1728000'
   end
 
-  protect_from_forgery with: :exception
 end
