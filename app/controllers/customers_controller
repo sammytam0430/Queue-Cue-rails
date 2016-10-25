@@ -1,3 +1,8 @@
 class CustomersController < ApplicationController
 
+  def new
+    new_customer = Customer.new 
+  end
+
+
 end

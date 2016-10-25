@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   match '*all', to: 'application#preflight', :via => [:options]
   resources :restaurants
   get '/*path' => redirect('/')
+
+  resources :customers
 end
