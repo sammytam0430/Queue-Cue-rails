@@ -1,7 +1,7 @@
 class CustomersController < ApplicationController
 
   def new
-    new_customer = Customer.new 
+    new_customer = Customer.new(new_customer_params) 
   end
 
 
