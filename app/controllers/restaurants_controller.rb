@@ -1,18 +1,16 @@
 class RestaurantsController < ApplicationController
 
   def index
-    @restaurant = Restaurant.order(id: :desc)
-    render json: @restaurant
+    restaurant = Restaurant.order(id: :desc)
+    render json: restaurant
   end
 
   def create
-    puts params['restaurant']
-
     restaurant = Restaurant.new(restaurant_params)
     if restaurant.save
-      puts 'YES SAVED'
+      render json: restaurant
     else
-      puts 'NO FAILED'
+      render json: {errors: restaurant.errors.full_messages}
     end
   end
 

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  after_action :allow_cross_origin_requests, if: proc { Rails.env.development? }
+  after_action :allow_cross_origin_requests
 
   def preflight
     head(:ok) if request.request_method == "OPTIONS"
