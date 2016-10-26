@@ -1,9 +1,7 @@
 class Customer < ApplicationRecord
 
   validates :name, presence: true
-  validates :phone_number, presence: true,
-      numericality:  true,
-      length: { is: 10 }
+  validates :phone_number, presence: true
   validates :email, presence: true
 
 end
