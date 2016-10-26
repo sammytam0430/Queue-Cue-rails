@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/*path' => redirect('/')
 
   resources :customers
+  resources :reservations
 end
