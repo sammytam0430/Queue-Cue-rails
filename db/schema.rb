@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161027025029) do
+ActiveRecord::Schema.define(version: 20161027201800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20161027025029) do
     t.integer  "customer_id"
     t.integer  "restaurant_id"
     t.boolean  "completed"
+    t.integer  "time_added"
     t.index ["customer_id"], name: "index_reservations_on_customer_id", using: :btree
     t.index ["restaurant_id"], name: "index_reservations_on_restaurant_id", using: :btree
   end

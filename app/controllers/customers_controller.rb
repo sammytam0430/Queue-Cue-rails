@@ -27,6 +27,7 @@ class CustomersController < ApplicationController
       :party_size,
       :customer_id,
       :restaurant_id,
+      :time_added,
       :completed
     )
   end
