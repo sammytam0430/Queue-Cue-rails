@@ -7,7 +7,7 @@ class RestaurantsController < ApplicationController
 
   def index
     restaurants = Restaurant.order(id: :desc)
-    render json: restaurants
+    render json: restaurants.as_json(:include => :reservations)
   end
 
   def create
