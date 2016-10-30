@@ -6,8 +6,8 @@ class RestaurantsController < ApplicationController
   end
 
   def index
-    restaurant = Restaurant.order(id: :desc)
-    render json: restaurant
+    restaurants = Restaurant.order(id: :desc)
+    render json: restaurants
   end
 
   def create
