@@ -18,11 +18,17 @@ class CustomersController < ApplicationController
       new_reservation.customer_id = customer
       new_reservation.restaurant_name = restaurant_name
       new_reservation.save
-      # render json: new_customer
-      render json: new_reservation
+      render json: {
+        new_reservation: new_reservation,
+        new_customer: new_customer
+      }
     else
       render json: {errors: new_customer.errors.full_messages}
     end
+  end
+
+  def destroy
+    Customer.delete(params[:id])
   end
 
   def new_customer_params
