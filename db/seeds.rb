@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 # Helper functions
 def open_asset(file_name)
   File.open(Rails.root.join('db', 'seed_assets', file_name))
@@ -22,20 +23,64 @@ Reservation.destroy_all
 
 puts "Seeding Data ..."
 
-5.times do |i|
-  Restaurant.create(name: " Restaurant ##{i}", food_type: "Sushi", location: "Vancouver")
+require 'json'
+# Importing json data
+vancouver = "/vagrant/queue-que-rails/restaurant-data/vancouver.json"
+coquitlam = "/vagrant/queue-que-rails/restaurant-data/coquitlam.json"
+surrey = "/vagrant/queue-que-rails/restaurant-data/surrey.json"
+burnaby = "/vagrant/queue-que-rails/restaurant-data/burnaby.json"
+richmond = "/vagrant/queue-que-rails/restaurant-data/richmond.json"
+langley = "/vagrant/queue-que-rails/restaurant-data/langley.json"
+vanRests = JSON.parse(File.read(vancouver))
+langleyRests = JSON.parse(File.read(langley))
+burnabyRests = JSON.parse(File.read(burnaby))
+surreyRests = JSON.parse(File.read(surrey))
+coquitlamRests = JSON.parse(File.read(coquitlam))
+richmondRests = JSON.parse(File.read(richmond))
+
+vanRests.each do |r|
+  Restaurant.create(
+    name: "#{r["name"]}",
+    food_type: "#{r["categories"][0]["alias"]}",
+    location: "Vancouver"
+  )
 end
 
-5.times do |i|
-  Restaurant.create(name: " Cafe ##{i}", food_type: "Korean", location: "Vancouver")
+langleyRests.each do |r|
+  Restaurant.create(
+    name: "#{r["name"]}",
+    food_type: "#{r["categories"][0]["alias"]}",
+    location: "Langley"
+  )
 end
 
-5.times do |i|
-  Restaurant.create(name: " BBQ ##{i}", food_type: "Chinese", location: "Burnaby")
+burnabyRests.each do |r|
+  Restaurant.create(
+    name: "#{r["name"]}",
+    food_type: "#{r["categories"][0]["alias"]}",
+    location: "Burnaby"
+  )
 end
-
-5.times do |i|
-  Restaurant.create(name: " Hotpot ##{i}", food_type: "Asian", location: "Richmond")
+surreyRests.each do |r|
+  Restaurant.create(
+    name: "#{r["name"]}",
+    food_type: "#{r["categories"][0]["alias"]}",
+    location: "Surrey"
+  )
+end
+coquitlamRests.each do |r|
+  Restaurant.create(
+    name: "#{r["name"]}",
+    food_type: "#{r["categories"][0]["alias"]}",
+    location: "Coquitlam"
+  )
+end
+richmondRests.each do |r|
+  Restaurant.create(
+    name: "#{r["name"]}",
+    food_type: "#{r["categories"][0]["alias"]}",
+    location: "Richmond"
+  )
 end
 
 puts "Done!"
