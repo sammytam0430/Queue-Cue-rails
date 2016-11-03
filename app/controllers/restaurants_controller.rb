@@ -2,7 +2,13 @@ class RestaurantsController < ApplicationController
   # this will render the parties that are in the queue for this particular restaurant
   def show
     queue_list = Reservation.where(restaurant_id: params[:id])
-    render json: queue_list
+    total_time = queue_list.sum('time_added')
+    puts queue_list
+    puts total_time
+    render json: {
+      queue_list: queue_list,
+      total_time: total_time
+    }
   end
 
   def index
