@@ -21,6 +21,7 @@ gem 'delayed_job_active_record'
 # Need daemons to start delayed_job
 gem 'daemons'
 # Use jquery as the JavaScript library
+gem 'sidekiq'
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
